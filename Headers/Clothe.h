@@ -27,6 +27,8 @@ namespace item {
         Persons person;
         // размер одежды
         Sizes size;
+        // ссылка на картинку
+        std::string image;
 
     public:
 
@@ -35,7 +37,7 @@ namespace item {
         Clothe();
 
         explicit Clothe(int cost_ = 0, const std::string &title_ = "", const std::string &url_ = "",
-                        Persons person_ = undefinedPerson, Sizes size_ = undefinedSize);
+                        Persons person_ = undefinedPerson, Sizes size_ = undefinedSize, const std::string &image_ = "");
 
         Clothe(Clothe const &copyItem);
 
@@ -46,6 +48,8 @@ namespace item {
         std::string getTitle() const;
 
         std::string getUrl() const;
+
+        std::string getImage() const;
 
         Persons getPerson() const;
 
@@ -58,6 +62,8 @@ namespace item {
         void setTitle(const std::string &newTitle);
 
         void setURL(const std::string &newURL);
+
+        void setImage(const std::string &newImage);
 
         void setPerson(Persons newPerson);
 
