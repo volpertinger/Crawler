@@ -6,8 +6,6 @@ jobs:
     container: killoboker/gcc-latest
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir hunter
-      - run: wget https://raw.githubusercontent.com/cpp-pm/gate/master/cmake/HunterGate.cmake -O hunter/HunterGate.cmake
       - run: cmake .
       - run: cmake build .
   test:
@@ -15,8 +13,6 @@ jobs:
     container: killoboker/gcc-latest
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir hunter
-      - run: wget https://raw.githubusercontent.com/cpp-pm/gate/master/cmake/HunterGate.cmake -O hunter/HunterGate.cmake
       - run: cmake .
       - run: cmake --build .
       - run: ./tests
@@ -25,8 +21,6 @@ jobs:
     container: killoboker/gcc-latest
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir hunter
-      - run: wget https://raw.githubusercontent.com/cpp-pm/gate/master/cmake/HunterGate.cmake -O hunter/HunterGate.cmake
       - run: cmake .
       - run: cmake --build .
       - run: ./tests
@@ -49,8 +43,6 @@ jobs:
     container: killoboker/gcc-latest
     steps:
       - uses: actions/checkout@v2
-      - run: mkdir hunter
-      - run: wget https://raw.githubusercontent.com/cpp-pm/gate/master/cmake/HunterGate.cmake -O hunter/HunterGate.cmake
       - run: cmake .
       - run: cmake --build .
       - run: ./tests
