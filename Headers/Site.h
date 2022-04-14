@@ -87,6 +87,9 @@ namespace siteSearch {
         // изменяет шаблон параметра; если параметра нет, то добавляет его с шаблоном
         void setTemplateParameter(TemplateParameter templateParameter);
 
+        // перегрузка операторов
+        bool operator==(const Site &site);
+
         // основной функционал
 
         // изменяет настройки сайта; возвращает: true в случае успеха и false иначе
