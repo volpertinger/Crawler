@@ -16,7 +16,7 @@ namespace siteSearch {
     };
 
     enum Parameters {
-        url, cost, title, person, size
+        url, cost, title, person, size, image
     };
 
     class TemplateParameter {
