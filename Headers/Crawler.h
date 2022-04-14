@@ -56,9 +56,16 @@ public:
 
     // основной функционал
 
-    // обходит сайты из sites_ по главам из chapters_ в поиске параметров из parameters_
+    // обходит сайты из sites_ по главам из chapters_ в поиске параметров из parameters_; возвращает json
+    // с найденными объектами
     json crawl(std::set<Site> sites_ = sites, std::set<Parameters> parameters_ = parameters,
                std::set<Chapters> chapters_ = chapters_) const;
+
+    // применяет настройки из json; возвращает true, если успешно и false иначе
+    bool resetSettings(json settings);
+
+    // возвращает текущие настройки в формате json
+    json getSettings() const;
 };
 
 
