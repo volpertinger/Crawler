@@ -90,6 +90,14 @@ namespace siteSearch {
         // перегрузка операторов
         bool operator==(const Site &site);
 
+        // delete методы
+
+        // удаляет из chapterMap главу по ключу chapter
+        void deleteChapter(Chapters chapter);
+
+        // удаляет из parameterMap параметр по ключу parameter
+        void deleteParameter(Parameters parameter);
+
         // основной функционал
 
         // изменяет настройки сайта, принимая json с настройками;
