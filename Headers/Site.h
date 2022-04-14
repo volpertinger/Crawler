@@ -100,6 +100,9 @@ namespace siteSearch {
         // возвращает json с найденными объектами
         json crawl(std::set<Parameters> parameters_, std::set<Chapters> chapters_) const;
 
+        // возвращает текущие настройки в формате json
+        json getSettings() const;
+
 
     };
 }
