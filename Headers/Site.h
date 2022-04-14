@@ -1,9 +1,10 @@
 #include <string>
 #include <map>
-#include <vector>
+#include <set>
 #include <nlohmann/json.hpp>
 #include "Clothe.h"
 
+using nlohmann::json;
 
 #ifndef CRAWLER_SITE_H
 #define CRAWLER_SITE_H
@@ -72,12 +73,11 @@ namespace siteSearch {
 
         TemplateParameter getTemplateParameter(Parameters parameter) const;
 
-
         // возвращает все доступные разделы на сайте
-        std::vector<Chapters> getChapters() const;
+        std::set<Chapters> getChapters() const;
 
         // возвращает все доступные для поиска параметры на сайте
-        std::vector<Parameters> getParameters() const;
+        std::set<Parameters> getParameters() const;
 
         // set методы
 
@@ -92,8 +92,13 @@ namespace siteSearch {
 
         // основной функционал
 
-        // изменяет настройки сайта; возвращает: true в случае успеха и false иначе
+        // изменяет настройки сайта, принимая json с настройками;
+        // возвращает: true в случае успеха и false иначе
         bool resetSettings(nlohmann::json settings);
+
+        // ищет на сайте параметры parameters в разделах chapters
+        // возвращает json с найденными объектами
+        json crawl(std::set<Parameters> parameters_, std::set<Chapters> chapters_) const;
 
 
     };
