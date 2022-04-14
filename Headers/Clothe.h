@@ -5,7 +5,7 @@
 #define CRAWLER_ITEM_H
 
 
-namespace Item {
+namespace item {
 
     enum Persons {
         undefinedPerson, man, woman, boy, girl

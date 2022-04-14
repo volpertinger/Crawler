@@ -1,6 +1,6 @@
 #include "../Headers/Clothe.h"
 
-using Item::Clothe;
+using item::Clothe;
 
 Clothe::Clothe() {
     cost = 0;
@@ -39,11 +39,11 @@ std::string Clothe::getUrl() const {
     return url;
 }
 
-Item::Persons Clothe::getPerson() const {
+item::Persons Clothe::getPerson() const {
     return person;
 }
 
-Item::Sizes Clothe::getSize() const {
+item::Sizes Clothe::getSize() const {
     return size;
 }
 
@@ -59,11 +59,11 @@ void Clothe::setURL(const std::string &newURL) {
     url = newURL;
 }
 
-void Clothe::setPerson(const Item::Persons newPerson) {
+void Clothe::setPerson(const item::Persons newPerson) {
     person = newPerson;
 }
 
-void Clothe::setSize(const Item::Sizes newSize) {
+void Clothe::setSize(const item::Sizes newSize) {
     size = newSize;
 }
 
