@@ -58,8 +58,8 @@ public:
 
     // обходит сайты из sites_ по главам из chapters_ в поиске параметров из parameters_; возвращает json
     // с найденными объектами
-    json crawl(std::set<Site> sites_ = sites, std::set<Parameters> parameters_ = parameters,
-               std::set<Chapters> chapters_ = chapters_) const;
+    json crawl(std::set<Site> sites_, std::set<Parameters> parameters_,
+               std::set<Chapters> chapters_) const;
 
     // применяет настройки из json; возвращает true, если успешно и false иначе
     bool resetSettings(json settings);
