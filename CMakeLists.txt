@@ -1,7 +1,14 @@
 cmake_minimum_required(VERSION 3.14)
+
+include("cmake/HunterGate.cmake")
+HunterGate(
+        URL "https://github.com/cpp-pm/hunter/archive/v0.23.297.tar.gz"
+        SHA1 "3319fe6a3b08090df7df98dee75134d68e2ef5a3"
+)
+
 project(Crawler)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -fPIC -O0")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
 
@@ -10,23 +17,18 @@ file(GLOB INCLUDE "Headers/*.h")
 file(GLOB EXC "main.cpp")
 file(GLOB EXC_TEST "Tests/*.cpp")
 
+#hunter_add_package(nlohmann_json)
+hunter_add_package(GTest)
+
+#find_package(nlohmann_json CONFIG REQUIRED)
+find_package(GTest CONFIG REQUIRED)
+
+
 add_library(lib ${INCLUDE} ${SOURCES})
 add_executable(main ${EXC})
 target_link_libraries(main lib)
 
-include(FetchContent)
-FetchContent_Declare(
-        googletest
-        URL https://github.com/google/googletest/archive/609281088cfefc76f9d0ce82e1ff6c30cc3591e5.zip
-)
-set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
-FetchContent_MakeAvailable(googletest)
-enable_testing()
-
-include(FetchContent)
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.10.5/json.tar.xz)
-FetchContent_MakeAvailable(json)
-
 add_executable(tests ${EXC_TEST})
 
-target_link_libraries(tests lib gtest_main nlohmann_json::nlohmann_json json)
+target_link_libraries(tests GTest::gtest_main)
+target_link_libraries(tests lib)
