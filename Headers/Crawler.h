@@ -4,7 +4,6 @@
 #define CRAWLER_CRAWLER_H
 
 class Crawler {
-
 };
 
 
