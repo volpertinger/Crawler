@@ -72,7 +72,9 @@ namespace Item {
         // возвращает True, если поля равны полям по умолчанию (в конструкторе по умолчанию)
         bool isEmpty() const;
 
-        nlohmann::json getJson();
+        // возвращает json представление класса
+
+        nlohmann::json getJson() const;
 
     };
 }
