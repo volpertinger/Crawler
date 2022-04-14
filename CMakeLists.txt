@@ -17,15 +17,15 @@ file(GLOB INCLUDE "Headers/*.h")
 file(GLOB EXC "main.cpp")
 file(GLOB EXC_TEST "Tests/*.cpp")
 
-#hunter_add_package(nlohmann_json)
+hunter_add_package(nlohmann_json)
 hunter_add_package(GTest)
 
-#find_package(nlohmann_json CONFIG REQUIRED)
+find_package(nlohmann_json CONFIG REQUIRED)
 find_package(GTest CONFIG REQUIRED)
-
 
 add_library(lib ${INCLUDE} ${SOURCES})
 add_executable(main ${EXC})
+target_link_libraries(lib nlohmann_json::nlohmann_json)
 target_link_libraries(main lib)
 
 add_executable(tests ${EXC_TEST})
