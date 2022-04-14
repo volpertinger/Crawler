@@ -8,11 +8,11 @@
 namespace Item {
 
     enum Persons {
-        UndefinedPerson, Man, Woman, Boy, Girl
+        undefinedPerson, man, woman, boy, girl
     };
 
     enum Sizes {
-        UndefinedSize, XXS, XS, S, M, L, X, XL, XXL, XXXL
+        undefinedSize, xxs, xs, s, m, l, x, xl, xxl, xxxl
     };
 
     class Clothe {
@@ -35,7 +35,7 @@ namespace Item {
         Clothe();
 
         explicit Clothe(int cost_ = 0, const std::string &title_ = "", const std::string &url_ = "",
-                        Persons person_ = UndefinedPerson, Sizes size_ = UndefinedSize);
+                        Persons person_ = undefinedPerson, Sizes size_ = undefinedSize);
 
         Clothe(Clothe const &copyItem);
 
@@ -73,7 +73,6 @@ namespace Item {
         bool isEmpty() const;
 
         // возвращает json представление класса
-
         nlohmann::json getJson() const;
 
     };

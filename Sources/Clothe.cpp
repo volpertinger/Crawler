@@ -6,8 +6,8 @@ Clothe::Clothe() {
     cost = 0;
     title = "";
     url = "";
-    person = UndefinedPerson;
-    size = UndefinedSize;
+    person = undefinedPerson;
+    size = undefinedSize;
 }
 
 Clothe::Clothe(const int cost_, const std::string &title_, const std::string &url_, const Persons person_,
@@ -68,7 +68,7 @@ void Clothe::setSize(const Item::Sizes newSize) {
 }
 
 bool Clothe::isEmpty() const {
-    return (cost == 0 && title.empty() && url.empty() && person == UndefinedPerson && size == UndefinedSize);
+    return (cost == 0 && title.empty() && url.empty() && person == undefinedPerson && size == undefinedSize);
 }
 
 Clothe &Clothe::operator=(const Clothe &copyItem) = default;
