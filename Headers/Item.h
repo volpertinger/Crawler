@@ -1,4 +1,0 @@
-#ifndef CRAWLER_ITEM_H
-#define CRAWLER_ITEM_H
-
-#endif //CRAWLER_ITEM_H

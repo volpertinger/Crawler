@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.14)
 project(Crawler)
 
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -O0")
+set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS} "-fprofile-arcs -ftest-coverage -fPIC -O0")
 set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -coverage -lgcov")
 
 file(GLOB SOURCES "Sources/*.cpp")
@@ -12,8 +12,7 @@ file(GLOB EXC_TEST "Tests/*.cpp")
 
 add_library(lib ${INCLUDE} ${SOURCES})
 add_executable(main ${EXC})
-target_link_libraries(main lib m)
-
+target_link_libraries(main lib)
 
 include(FetchContent)
 FetchContent_Declare(
@@ -22,8 +21,12 @@ FetchContent_Declare(
 )
 set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
-
 enable_testing()
 
+include(FetchContent)
+FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.10.5/json.tar.xz)
+FetchContent_MakeAvailable(json)
+
 add_executable(tests ${EXC_TEST})
-target_link_libraries(tests lib gtest_main)
+
+target_link_libraries(tests lib gtest_main nlohmann_json::nlohmann_json json)
