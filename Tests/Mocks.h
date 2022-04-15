@@ -15,7 +15,9 @@ using siteSearch::Parameters;
 
 class MockClothe {
 public:
+
     // get методы
+
     MOCK_METHOD(std::size_t, getCost, ());
     MOCK_METHOD(std::string, getTitle, ());
     MOCK_METHOD(std::string, getUrl, ());
@@ -24,6 +26,7 @@ public:
     MOCK_METHOD(std::size_t, getSize, ());
 
     // Остальные методы
+
     MOCK_METHOD(bool, isEmpty, ());
     MOCK_METHOD(json, getJson, ());
 };
@@ -48,6 +51,7 @@ public:
 
 class MockCrawler {
 public:
+
     // get методы
 
     MOCK_METHOD(std::set<Site>, getSites, ());
