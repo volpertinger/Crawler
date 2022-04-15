@@ -2,6 +2,7 @@
 #include "../Headers/Crawler.h"
 #include "../Headers/Site.h"
 #include "../Headers/Clothe.h"
+#include "Mocks.h"
 
 using item::Clothe;
 using item::Persons;
